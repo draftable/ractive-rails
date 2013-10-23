@@ -3,25 +3,23 @@ ractive-rails
 
 ### Server side
 
-```ruby
-gem ractive-rails
-```
-
-Add the javascript to your HTML page:
+In your `Gemfile`:
 
 ```ruby
- javascript_include_tag "......?"
+gem 'ractive-rails', github: 'Ziplist/ractive-rails'
 ```
-Where you can choose either:
- * ractive -- this contains no support for older browsers and lets you generate ractive templates in the browser
- * ractive.runtime -- this contains no support for older browsers and does not let you generate templates browser-side
- * ractive-legacy -- this contains support for older browsers and lets you generate ractive templates in the browser
- * ractive-legacy.runtime -- this contains support for older browsers and does not let you generate templates browser-side
 
+You can choose from the following Ractive versions:
+ * `ractive` -- no support for older browsers; lets you generate Ractive templates in the browser
+ * `ractive.runtime` -- no support for older browsers; does not let you generate templates browser-side
+ * `ractive-legacy` -- with support for older browsers; lets you generate Ractive templates in the browser
+ * `ractive-legacy.runtime` -- with support for older browsers; does not let you generate templates browser-side
 
-Include the view templates in the asset pipeline:
-```javasript
- //= require_tree ./views
+Include the desired Ractive distribution in the asset pipeline, along with your view templates:
+
+```javascript
+//= require ractive
+//= require_tree ./views
 ```
 
 ### Extensions supported
@@ -34,5 +32,7 @@ template.ractive
 ### Client side
 
 ```javascript
-var template = RactiveTemplates["path/to/your/template"]
+var template = RactiveTemplates["path/to/your/template"];
 ```
+
+The templates are compiled, so you only need a `.runtime` distribution if you use only templates compiled by `ractive-rails`.
