@@ -6,7 +6,7 @@ ractive-rails
 In your `Gemfile`:
 
 ```ruby
-gem 'ractive-rails', github: 'Ziplist/ractive-rails'
+gem 'ractive-rails', github: 'kivikakk/ractive-rails'
 ```
 
 You can choose from the following Ractive versions:
